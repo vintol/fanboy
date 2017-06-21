@@ -8,13 +8,13 @@ A scraper that can retrive links of hq images from fansites and download them, i
 [![GitHub forks](https://img.shields.io/github/forks/vintol/fanboy.svg?style=plastic)](https://github.com/vintol/fanboy/network)
 [![GitHub tag](https://img.shields.io/github/tag/expressjs/express.svg)](https://github.com/vintol/fanboy)
 [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/vintol/fanboy)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)]()
-
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/vintol-fanboy/)
+[![Join the chat at https://gitter.im/vintol-fanboy/Lobby](https://badges.gitter.im/vintol-fanboy/Lobby.svg)](https://gitter.im/vintol-fanboy/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [TOC]
 
 ## INSTALL
 
-[![Join the chat at https://gitter.im/vintol-fanboy/Lobby](https://badges.gitter.im/vintol-fanboy/Lobby.svg)](https://gitter.im/vintol-fanboy/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 Fanboy is written in python3.
 
