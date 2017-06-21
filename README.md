@@ -14,6 +14,8 @@ A scraper that can retrive links of hq images from fansites and download them, i
 
 ## INSTALL
 
+[![Join the chat at https://gitter.im/vintol-fanboy/Lobby](https://badges.gitter.im/vintol-fanboy/Lobby.svg)](https://gitter.im/vintol-fanboy/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Fanboy is written in python3.
 
 You will need [python3](https://wiki.python.org/moin/BeginnersGuide/Download).      
