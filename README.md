@@ -2,6 +2,14 @@ Fanboy
 
 A scraper that can retrive links of hq images from fansites and download them, in bulk.
 
+[![GitHub license](https://img.shields.io/badge/license-GPL-blue.svg)](https://raw.githubusercontent.com/vintol/fanboy/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/vintol/fanboy.svg)](https://github.com/vintol/fanboy/issues)
+[![GitHub stars](https://img.shields.io/github/stars/vintol/fanboy.svg?style=plastic)](https://github.com/vintol/fanboy/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/vintol/fanboy.svg?style=plastic)](https://github.com/vintol/fanboy/network)
+[![GitHub tag](https://img.shields.io/github/tag/expressjs/express.svg)](https://github.com/vintol/fanboy)
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/vintol/fanboy)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)]()
+
 [TOC]
 
 ## INSTALL
