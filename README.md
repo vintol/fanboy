@@ -1,4 +1,12 @@
-Fanboy
+      __            _
+    /  _|          | |
+    | |_ __ _ _ __ | |__   ___  _   _
+    |  _/ _` | '_ \| '_ \ / _ \| | | |
+    | || (_| | | | | |_) | (_) | |_| |
+    |_| \__,_|_| |_|_.__/ \___/ \__, |
+                                 __/ |
+                                |___/
+
 
 A scraper that can retrive links of hq images from fansites and download them, in bulk.
 
