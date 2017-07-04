@@ -16,7 +16,6 @@ import time
 import argparse
 import os
 import threading, queue
-import better_exceptions
 
 ## Functions
 # Albums
