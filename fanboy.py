@@ -1,5 +1,5 @@
 # Fanboy Clubbed
-# v2.0.0 22/06/2017
+# v2.11.0 20/05/2018
 #
 #   fanboy  Copyright (C) 2016  Tejaskumar Maru
 #
@@ -160,7 +160,7 @@ class fansite():
         fhand.close()
 
 ## Supported Sites and Info
-sites = {
+sites = { 
 'goddessadriana.com':["AdrianaL", "http://goddessadriana.com/gallery/"],
 'alexandra-daddario.org':["AlexandraD", "http://alexandra-daddario.org/photos/"],
 'alexandradaddario.us':["AlexandraD", "http://alexandradaddario.us/photos/"],
@@ -174,8 +174,9 @@ sites = {
 'ashleygreenefans.org':["AshleyG", "http://ashleygreenefans.org/gallery/"],
 'barrefaelionline.com':["BarR", "http://gallery.barrefaelionline.com/"],
 'b-palvin.net':["BarbaraP", "http://b-palvin.net/gallery/"],
-'barbara-palvin.sosugary.org':["BarbaraP2", "http://barbara-palvin.sosugary.org/"],
+'barbara-palvin.sosugary.org':["BarbaraP", "http://barbara-palvin.sosugary.org/"],
 'behati-prinsloo.us':["BehatiP", "http://behati-prinsloo.us/gallery/"],
+'bella-hadid.fans.bz':["BellaH", "http://bella-hadid.fans.bz/gallery/"],
 'bellahadid.org':["BellaH", "http://bellahadid.org/gallery/"],
 'bellahadid.sosugary.org':["BellaH", "http://bellahadid.sosugary.org/"],
 'bella-images.org':["BellaT", "http://bella-images.org/"],
@@ -183,10 +184,16 @@ sites = {
 'bellathornefrance.net':["BellaT", "http://bellathornefrance.net/Photos/"],
 'bella-thorne.org':["BellaT", "http://bella-thorne.org/gallery/"],
 'bellathorne.net':["BellaT", "http://www.bellathorne.net/photos/"],
+'beyonceonline.org':["Beyonce", "http://beyonceonline.org/gallery/"],
 'divinecandice.com':["CandiceS", "http://divinecandice.com/photos/"],
+'candiceswanepoel.com.br':["CandiceS", "http://candiceswanepoel.com.br/galeria/"],
+'swanepoel-candice.com':["CandiceS", "http://swanepoel-candice.com/pictures/"],
+'cara-delevingne.org':["CaraD", "http://cara-delevingne.org/gallery/"],
+'cara-delevingne.com':["CaraD", "http://www.cara-delevingne.com/photos/"],
 'charlizecentral.com':["CharlizeT", "http://charlizecentral.com/gallery/"],
 'deborahannwoll.org':["DeborahAW", "http://deborahannwoll.org/photos/"],
 'doutzenkfanpage.com':["DoutzenK", "http://www.doutzenkfanpage.com/gallery/"],
+'emilydidonatosource.com':["EmilyD", "https://emilydidonatosource.com/gallery/"],
 'iheartwatson.net':["EmmaW", "http://iheartwatson.net/gallery/"],
 'emmaw.net':["EmmaW", "http://emmaw.net/gallery/"],
 'emma-watson-fan.org':["EmmaW", "http://emma-watson-fan.org/gallery/"],
@@ -196,9 +203,9 @@ sites = {
 'emiliaclarkefan.net':["EmiliaC", "http://emiliaclarkefan.net/gallery/"],
 'emily-blunt.net':["EmilyB", "http://www.emily-blunt.net/gallery/"],
 'emilyblunt.net':["EmilyB", "http://emilyblunt.net/gallery/"],
-'emilydidonatosource.com':["EmilyD","https://emilydidonatosource.com/gallery/"],
 'eblunt.org':["EmilyB", "http://eblunt.org/photos/"],
 'elizabeth-gillies.net':["ElizabethG", "http://www.elizabeth-gillies.net/gallery/"],
+'hoskelsa.com':["ElsaH", "http://hoskelsa.com/photos/"],
 'evagreenweb.com':["EvaG", "http://evagreenweb.com/gallery/"],
 'evangeline-l.us':["Evangeline", "http://evangeline-l.us/gallery/"],
 'evangelinelilly.org':["Evangeline", "http://evangelinelilly.org/gallery/"],
@@ -206,7 +213,6 @@ sites = {
 'gal-gadot.net':["GalG", "http://gal-gadot.net/photos/"],
 'gadot-gal.com':["GalG", "http://gadot-gal.com/photos/"],
 'g-gadot.com':["GalG", "http://g-gadot.com/gallery/"],
-'hoskelsa.com':["ElsaH", "http://hoskelsa.com/photos/"],
 'gemma-arterton.net':["GemmaA", "http://gemma-arterton.net/media/"],
 'g-arterton.net':["GemmaA", "http://g-arterton.net/galeria/"],
 'gigi-hadid.org':["GigiH", "http://gigi-hadid.org/gallery/"],
@@ -220,6 +226,7 @@ sites = {
 'julianne-moore.org':["JulianneM", "http://julianne-moore.org/photos/"],
 'k-winnick.com':["KatherynW", "http://k-winnick.com/photos/"],
 'kaya-scodelario.com':["KayaS", "http://kaya-scodelario.com/gallery/"],
+'katheryn-winnick.net':["KatherunW", "http://katheryn-winnick.net/gallery/"],
 'katheryn-winnick.org':["KatherynW", "http://katheryn-winnick.org/photos/"],
 'kristenphotos.org':["KristenS", "http://www.kristenphotos.org/"],
 'kristensdaily.net':["KristenS", "http://kristensdaily.net/gallery/"],
@@ -255,7 +262,6 @@ sites = {
 'w-holland.org':["WillaH", "http://w-holland.org/photos/"],
 'hq-pictures.com':["HQPICS", "http://hq-pictures.com/"],
 'hqcelebrity.org':["HQCELEB", "http://hqcelebrity.org/"],
-'hqdiesel.net':["HQDisel","http://www.hqdiesel.net/gallery/"],
 'chris-evans.org':["ChrisE", "http://chris-evans.org/photos/"],
 'chrisevansweb.net':["ChrisE", "http://chrisevansweb.net/gallery/"],
 'chris-hemsworth.net':["ChrisH", "http://chris-hemsworth.net/gallery/"],
@@ -263,6 +269,7 @@ sites = {
 'hugh-fan.com':["HughJ", "http://hugh-fan.com/photos/"],
 'liam-hemsworth.org':["LiamH", "http://liam-hemsworth.org/gallery/"],
 'liamhemsworth.org':["LiamH", "http://liamhemsworth.org/gallery/"]}
+
 
 ## Variables
 

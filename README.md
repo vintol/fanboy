@@ -61,7 +61,7 @@ Although any downloader will do, retrive.py names the downloaded images for bett
 
 
 ## Websites
-Currently Fanboy supports more than 100 fansites. Some of them are ...
+Currently Fanboy supports 108 fansites. Some of them are ...
 
 - [bella-hadid.fans.bz](http://bella-hadid.fans.bz/gallery/)
 - [bella-thorne.com](http://bella-thorne.com/gallery/)
