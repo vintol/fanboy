@@ -17,9 +17,16 @@ A scraper that can retrive links of hq images from fansites and download them, i
 [![GitHub release](https://img.shields.io/badge/Release-v2.0.1-blue.svg)](https://github.com/vintol/fanboy/releases)
 [![Join the chat](https://badges.gitter.im/vintol-fanboy/Lobby.svg)](https://gitter.im/vintol/fanboy/)
 
-[TOC]
 
-## INSTALL
+## Index
+
+|
+|-- [Install](#install)
+|-- [Usage](./Wiki/Usage.html)
+|-- [Site](#websites)
+
+
+## Install
 
 
 
@@ -50,11 +57,11 @@ It will prompt for URL of the album you want to download images from , paste and
 A file will be created in working directory with the image links.
 
 I recommand using [retrive.py](https://github.com/vintol/fanboy/wiki/Retrive) to download these images,
-Although any downloader will do, retrive.py names the download images for beteer handling and mangement. See the docs for more details.    
+Although any downloader will do, retrive.py names the downloaded images for better handling and mangement. See the docs for more details.    
 
 
 ## Websites
-Currently Fanboy supports 95 fansites. Some of them are ...
+Currently Fanboy supports more than 100 fansites. Some of them are ...
 
 - [bella-hadid.fans.bz](http://bella-hadid.fans.bz/gallery/)
 - [bella-thorne.com](http://bella-thorne.com/gallery/)

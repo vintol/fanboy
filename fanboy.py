@@ -38,23 +38,25 @@ def no_page(soup):
         if soup.find(style="white-space: nowrap") is None:return 1
         else:return int(soup.find(style="white-space: nowrap").text.split()[-3])
 
+def gather_links(soup):
+    for each in soup.find_all('span','catlink'):
+        cat=sites[site][1] + each.a.get('href')
+        if cat not in cats:cats.append(cat)
+    for each in soup.find_all('span','alblink'):
+        alb = sites[site][1] + each.a.get('href')
+        if alb not in albs:albs.append(alb)
+
 def page(url):
-    global cats,albs
+    global cats,albs,site
     soup = mksoup(url)
+    site = whsite(url)
     try:pages = no_page(soup)
     except:pages = 1
-    for each in soup.find_all('span','catlink'):
-        cats.append(sites[site][1] + each.a.get('href'))
-    for each in soup.find_all('span','alblink'):
-        albs.append(sites[site][1] + each.a.get('href'))
+    gather_links(soup)
     #print("!!",len(albs),url)
     if pages > 1:
         for i in range(2,pages + 1):
-            nsoup = mksoup(url+"&page="+str(i))
-            for each in nsoup.find_all('span','catlink'):
-                cats.append(sites[site][1] + each.a.get('href'))
-            for each in nsoup.find_all('span','alblink'):
-                albs.append(sites[site][1] + each.a.get('href'))
+            gather_links(mksoup(url+"&page="+str(i)))
             #print("**",len(albs),url+"&page="+str(i))
 
 # Main Flow Switches
@@ -70,7 +72,7 @@ def many_fansite():
         for each in cats:
             page(each)
             cats.remove(each)
-    albums = len(sorted(albs))
+    albums = len(sorted(set(albs)))
     qq = queue.Queue()
     for each in sorted(albs):qq.put(each.strip())
     for i in range(args.threads):
@@ -81,7 +83,9 @@ def many_fansite():
     return albums
 
 def scrap(url):
-    global site,start_time
+    global site,start_time,cats,albs
+    cats.clear()
+    albs.clear()
     site = whsite(url)
     if site not in sites.keys():
         print("Fansite not supported.")
@@ -145,10 +149,11 @@ class fansite():
 
     def write(self):
         cref = []
-        if args.cross_ref is not None:
-            for each in open(args.cross_ref,'r'):
-                if each.startswith('#'):continue
-                cref.append(each.strip())
+        if args.cross_ref is not None:fhand = open(args.cross_ref,'r')
+#        else:fhand = open(self.fname,'r')
+#        for each in fhand:
+#            if each.startswith('#'):continue
+#            cref.append(each.strip())
         fhand = open(self.fname,'a')
         fhand.write("### {} \n#!!! {} \n### {} \n".format(self.title,self.url,self.info))
         for each in self.store:
@@ -170,8 +175,10 @@ sites = {
 'ashleygreenefans.org':["AshleyG", "http://ashleygreenefans.org/gallery/"],
 'barrefaelionline.com':["BarR", "http://gallery.barrefaelionline.com/"],
 'b-palvin.net':["BarbaraP", "http://b-palvin.net/gallery/"],
+'barbara-palvin.sosugary.org':["BarbaraP2", "http://barbara-palvin.sosugary.org/"],
 'behati-prinsloo.us':["BehatiP", "http://behati-prinsloo.us/gallery/"],
-'bella-hadid.fans.bz':["BellaH", "http://bella-hadid.fans.bz/gallery/"],
+'bellahadid.org':["BellaH", "http://bellahadid.org/gallery/"],
+'bellahadid.sosugary.org':["BellaH", "http://bellahadid.sosugary.org/"],
 'bella-images.org':["BellaT", "http://bella-images.org/"],
 'bella-thorne.com':["BellaT", "http://bella-thorne.com/gallery/"],
 'bellathornefrance.net':["BellaT", "http://bellathornefrance.net/Photos/"],
@@ -190,6 +197,7 @@ sites = {
 'emiliaclarkefan.net':["EmiliaC", "http://emiliaclarkefan.net/gallery/"],
 'emily-blunt.net':["EmilyB", "http://www.emily-blunt.net/gallery/"],
 'emilyblunt.net':["EmilyB", "http://emilyblunt.net/gallery/"],
+'emilydidonatosource.com':["EmilyD","https://emilydidonatosource.com/gallery/"],
 'eblunt.org':["EmilyB", "http://eblunt.org/photos/"],
 'elizabeth-gillies.net':["ElizabethG", "http://www.elizabeth-gillies.net/gallery/"],
 'evagreenweb.com':["EvaG", "http://evagreenweb.com/gallery/"],
@@ -242,12 +250,13 @@ sites = {
 'selenapictures.org':["SelenaG", "http://selenapictures.org/"],
 'shailene-woodley.org':["ShaileneW", "http://shailene-woodley.org/gallery/"],
 'sophieturner.org':["SophieT", "http://sophieturner.org/gallery/"],
-'sophieturnerfan.net':["SophieT", "http://sophieturnerfan.net/gallery/"],
+'sophie-turner.us':["SophieT", "http://sophie-turner.us/gallery/"],
 'taylorpictures.net':["TaylorS", "http://www.taylorpictures.net/"],
 'tonicollette.org':["ToniC", "http://www.tonicollette.org/gallery/"],
 'w-holland.org':["WillaH", "http://w-holland.org/photos/"],
 'hq-pictures.com':["HQPICS", "http://hq-pictures.com/"],
 'hqcelebrity.org':["HQCELEB", "http://hqcelebrity.org/"],
+'hqdiesel.net':["HQDisel","http://www.hqdiesel.net/gallery/"],
 'chris-evans.org':["ChrisE", "http://chris-evans.org/photos/"],
 'chrisevansweb.net':["ChrisE", "http://chrisevansweb.net/gallery/"],
 'chris-hemsworth.net':["ChrisH", "http://chris-hemsworth.net/gallery/"],
@@ -272,7 +281,7 @@ parser.add_argument('--file', dest='file', type = str, default = None, required 
 parser.add_argument('--cross', dest='cross_ref', type = str, default = None, required = False,
                     help='The file to cross reference with')
 parser.add_argument('--threads', dest='threads', type = int, default = 5, required = False,
-                    help='The file to cross reference with')
+                    help='No of threads to use')
 args = parser.parse_args()
 
 ## Main Path
@@ -283,6 +292,6 @@ if args.file is None:
         start_time = time.time()
         if iurl.startswith('#'):break
         elif iurl.startswith("http"):scrap(iurl)
-        else:print("Is this a URL.\n  Enter # to exit.")
+        else:print("Is this a URL?\n  Enter # to exit.")
 else:file()
 # END
