@@ -26,9 +26,13 @@ def whsite(url):
     return re.findall('https?://w{0,3}\.{0,1}(.+?\.[a-z]+?)/',url.lower().strip())[0]
 
 def mksoup(url):
-    print(url)
-    html = urllib.request.urlopen(url).read()
-    return bs4.BeautifulSoup(html,'lxml')
+    print('#',url)
+    try:
+        html = urllib.request.urlopen(url).read()
+        return bs4.BeautifulSoup(html,'lxml')
+    except:
+        print(url)
+        return None
 
 # Categories
 def no_page(soup):
@@ -48,15 +52,17 @@ def gather_links(soup):
 def page(url):
     global cats,albs,site
     soup = mksoup(url)
-    site = whsite(url)
-    try:pages = no_page(soup)
-    except:pages = 1
-    gather_links(soup)
-    #print("!!",len(albs),url)
-    if pages > 1:
-        for i in range(2,pages + 1):
-            gather_links(mksoup(url+"&page="+str(i)))
-            #print("**",len(albs),url+"&page="+str(i))
+    if soup is None:print(url)
+    else:
+        site = whsite(url)
+        try:pages = no_page(soup)
+        except:pages = 1
+        gather_links(soup)
+        #print("!!",len(albs),url)
+        if pages > 1:
+            for i in range(2,pages + 1):
+                gather_links(mksoup(url+"&page="+str(i)))
+                #print("**",len(albs),url+"&page="+str(i))
 
 # Main Flow Switches
 def thread_fansite():
@@ -130,9 +136,10 @@ class fansite():
         self.write()
 
     def page(self,soup):
-        for each in soup.find_all('img','image'):
-            thumb = re.findall('(.+/)thumb.+',each.get('src'))[0]
-            self.store.append(self.site_url + thumb + each.get('alt') )
+        if soup is not None:
+            for each in soup.find_all('img','image'):
+                thumb = re.findall('(.+/)thumb.+',each.get('src'))[0]
+                self.store.append(self.site_url + thumb + each.get('alt') )
 
     def getinfo(self):
         try: self.title   = self.soup.find("span","statlink").text.strip()
